@@ -1,11 +1,18 @@
 ---
 name: security
 description: Review React Native code for secret handling, secure storage, transport security, PII in logs, deep-link validation, input validation, and privacy compliance. Use when handling auth, payments, personal data, or before a security review.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, security, privacy, compliance]
 ---
 
 # Security Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

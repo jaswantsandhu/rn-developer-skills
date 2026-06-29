@@ -4,9 +4,11 @@
  *
  * Verifies repository structure and skill metadata:
  *  - every SKILL.md lives at skills/{skill-name}/SKILL.md
- *  - every SKILL.md has frontmatter with non-empty `name` and `description`
+ *  - every SKILL.md has required frontmatter (`name`, `description`, `version`,
+ *    `platforms`, `react-native-version`)
  *  - the `name` value matches the containing directory name
  *  - every skill directory under skills/ appears in the README skill index
+ *  - .cursor-plugin/plugin.json passes schema validation (see validate-plugin.mjs)
  *
  * Exits non-zero if any check fails; zero if all pass.
  */
@@ -14,11 +16,19 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validatePluginManifest } from './validate-plugin.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKILLS_DIR = join(ROOT, 'skills');
 const README = join(ROOT, 'README.md');
-const REQUIRED_FIELDS = ['name', 'description'];
+const REQUIRED_FIELDS = [
+  'name',
+  'description',
+  'version',
+  'platforms',
+  'react-native-version',
+];
+const ALLOWED_PLATFORMS = new Set(['ios', 'android']);
 
 const failures = [];
 const fail = (msg) => failures.push(msg);
@@ -33,6 +43,14 @@ function parseFrontmatter(content) {
     if (m) fields[m[1]] = m[2].trim();
   }
   return fields;
+}
+
+/** Parse YAML inline lists such as `[ios, android]`. */
+function parseYamlList(raw) {
+  if (!raw) return [];
+  const inner = raw.replace(/^\[/, '').replace(/\]$/, '').trim();
+  if (!inner) return [];
+  return inner.split(',').map((item) => item.trim()).filter(Boolean);
 }
 
 async function findSkillFiles(dir) {
@@ -108,6 +126,26 @@ async function main() {
     if (fm.name && fm.name !== dirName) {
       fail(`Frontmatter name "${fm.name}" does not match directory "${dirName}": ${file}`);
     }
+
+    const platforms = parseYamlList(fm.platforms);
+    if (platforms.length === 0) {
+      fail(`"platforms" must list at least one platform: ${file}`);
+    }
+    for (const platform of platforms) {
+      if (!ALLOWED_PLATFORMS.has(platform)) {
+        fail(
+          `"platforms" contains invalid value "${platform}" (allowed: ios, android): ${file}`,
+        );
+      }
+    }
+
+    if (fm['react-native-version'] && fm['react-native-version'].length < 3) {
+      fail(`"react-native-version" must describe the RN baseline (e.g. 0.76+): ${file}`);
+    }
+
+    if (!content.includes('## Applicability')) {
+      fail(`Missing "## Applicability" section: ${file}`);
+    }
   }
 
   // README skill index: each skill directory must be referenced.
@@ -122,13 +160,17 @@ async function main() {
     }
   }
 
+  await validatePluginManifest(failures, { root: ROOT });
+
   if (failures.length > 0) {
     console.error(`\nValidation failed with ${failures.length} issue(s):`);
     for (const f of failures) console.error(`  - ${f}`);
     process.exit(1);
   }
 
-  console.log(`Validation passed: ${skillDirNames.length} skill(s) checked.`);
+  console.log(
+    `Validation passed: ${skillDirNames.length} skill(s) and plugin manifest checked.`,
+  );
   process.exit(0);
 }
 

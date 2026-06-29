@@ -9,7 +9,7 @@
   "homepage": "https://github.com/Neha/rn-developer-skills",
   "repository": "https://github.com/Neha/rn-developer-skills",
   "license": "MIT",
-  "logo": "assets/rn-developer-skills-announcement.jpg",
+  "logo": "assets/logo.svg",
   "keywords": [
     "react-native",
     "skills",

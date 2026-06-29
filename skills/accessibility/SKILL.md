@@ -1,11 +1,18 @@
 ---
 name: accessibility
 description: Review React Native code for screen-reader support, labels and roles, touch targets, focus order, colour contrast, and dynamic type. Use when building UI, reviewing components, or auditing a screen for accessibility.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, accessibility, a11y, screen-reader]
 ---
 
 # Accessibility Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

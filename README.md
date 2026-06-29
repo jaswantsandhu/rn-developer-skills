@@ -88,6 +88,7 @@ These skills are plain Markdown, so you can adopt them in whichever way suits yo
    ```bash
    node scripts/validate-skills.mjs
    ```
+   Validates skill frontmatter, README index coverage, and `.cursor-plugin/plugin.json` against the Cursor schema.
 
 ## Using a Skill
 
@@ -104,6 +105,8 @@ Start with `spec-authoring` for a new feature, reach for the focused skills whil
 
 ```
 .cursor-plugin/   Cursor marketplace manifest (plugin.json)
+docs/             contributor guides (skill authoring walkthrough)
+schemas/          JSON Schema for plugin manifest validation
 skills/            one folder per skill, each with a SKILL.md
 templates/         starting points for new skills and specs
 scripts/           validation tooling

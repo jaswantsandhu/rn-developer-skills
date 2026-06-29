@@ -1,11 +1,18 @@
 ---
 name: conventions
 description: Baseline React Native project conventions for structure, TypeScript, naming, file size, and hygiene. Use when setting up a project, writing new code, or reviewing for consistency.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, conventions, structure, style]
 ---
 
 # Conventions
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

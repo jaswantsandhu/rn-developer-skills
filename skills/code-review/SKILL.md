@@ -1,11 +1,18 @@
 ---
 name: code-review
 description: Audit entry point for reviewing React Native code. Routes each concern to a focused skill and defines the review output format. Use when reviewing a PR, auditing a screen, or running a pre-merge quality gate.
-version: 2.0.0
+version: 2.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, code-review, audit]
 ---
 
 # Code Review Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

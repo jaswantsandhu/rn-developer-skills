@@ -1,11 +1,18 @@
 ---
 name: performance
 description: Review React Native code for rendering performance, list virtualisation, memoisation, image handling, animations, and memory/resource cleanup. Use when a screen feels janky, before merging UI-heavy code, or when profiling.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, performance, memory, rendering]
 ---
 
 # Performance Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

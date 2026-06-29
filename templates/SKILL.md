@@ -2,10 +2,17 @@
 name: skill-name
 description: One or two sentences stating what this skill covers and when to use it. Keep under 500 characters.
 version: 1.0.0
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, topic]
 ---
 
 # Skill Title
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

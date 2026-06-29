@@ -1,11 +1,18 @@
 ---
 name: architecture
 description: Review and structure React Native features for correct folder layout, navigation, deep linking, error boundaries, rendering safety, and code quality. Use when designing a new feature, reviewing structure, or isolating crashes.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, architecture, navigation, structure]
 ---
 
 # Architecture Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

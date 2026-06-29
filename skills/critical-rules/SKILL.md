@@ -1,11 +1,18 @@
 ---
 name: critical-rules
 description: Non-negotiable React Native rules that prevent crashes, data loss, security breaches, and compliance violations. Use on every change as a baseline safety check, regardless of the task.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, safety, crashes, security, compliance]
 ---
 
 # Critical Rules
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 
