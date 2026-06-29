@@ -1,11 +1,18 @@
 ---
 name: state-and-data
 description: Review React Native data and state handling — server state with a query library, caching and staleness, offline behaviour, network transitions, transactions, and loading/empty/error states. Use when wiring up APIs, handling offline, or reviewing data flow.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, state, data, networking, offline]
 ---
 
 # State and Data Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

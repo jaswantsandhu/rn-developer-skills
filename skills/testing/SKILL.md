@@ -1,11 +1,18 @@
 ---
 name: testing
 description: Guidance for testing React Native code — unit tests for logic, component tests for behaviour, E2E for critical paths, and edge-case coverage. Use when adding tests, reviewing test quality, or setting a coverage bar.
-version: 1.0.0
+version: 1.0.1
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, testing, quality]
 ---
 
 # Testing Skill
+
+## Applicability
+
+- **Platforms:** iOS and Android
+- **React Native:** 0.76+ (New Architecture interop assumed unless a checklist item says otherwise)
 
 ## When to Use
 

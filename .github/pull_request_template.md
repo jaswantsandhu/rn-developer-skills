@@ -21,6 +21,7 @@
 - [ ] README Skill Index updated (if adding or changing a skill description)
 - [ ] `node scripts/validate-skills.mjs` passes locally
 - [ ] CHANGELOG.md updated (if user-facing)
+- [ ] `skills/CHANGELOG.md` updated (if editing a skill)
 
 ## Test plan
 

@@ -2,6 +2,8 @@
 
 Thanks for helping improve these React Native skills. This guide covers how to propose a new skill and how to edit an existing one.
 
+For a full worked example (adding an `error-handling` skill step by step), see the [Skill Authoring Guide](docs/skill-authoring-guide.md).
+
 ## Proposing a New Skill
 
 1. Pick a kebab-case name for the skill (e.g. `error-handling`). This becomes the directory name.
@@ -14,6 +16,7 @@ Thanks for helping improve these React Native skills. This guide covers how to p
    node scripts/validate-skills.mjs
    ```
 7. Add a note to [`CHANGELOG.md`](CHANGELOG.md) under the unreleased/next version heading.
+8. Record the skill change in [`skills/CHANGELOG.md`](skills/CHANGELOG.md).
 
 ## Editing an Existing Skill
 
@@ -21,7 +24,7 @@ Thanks for helping improve these React Native skills. This guide covers how to p
 2. Bump the `version` field in the frontmatter (semantic versioning — see below).
 3. If you changed the description, update the matching entry in the README Skill Index.
 4. Run `node scripts/validate-skills.mjs`.
-5. Record the change in [`CHANGELOG.md`](CHANGELOG.md).
+5. Record the change in [`CHANGELOG.md`](CHANGELOG.md) and [`skills/CHANGELOG.md`](skills/CHANGELOG.md).
 
 ## Required `SKILL.md` Frontmatter
 
@@ -32,6 +35,8 @@ Every `SKILL.md` begins with a YAML frontmatter block, delimited by `---`, on th
 | `name` | string | Yes | Must match the skill's directory name exactly (kebab-case). |
 | `description` | string | Yes | 1–500 characters. States what the skill covers and when to use it. |
 | `version` | string | Yes | Semantic version `MAJOR.MINOR.PATCH` (e.g. `1.0.0`). |
+| `platforms` | list of strings | Yes | `ios` and/or `android`. Helps agents know platform scope. |
+| `react-native-version` | string | Yes | RN baseline the skill targets (e.g. `0.76+`). |
 | `tags` | list of strings | No | Lowercase letters, digits, and hyphens. |
 
 Example:
@@ -41,6 +46,8 @@ Example:
 name: performance
 description: Review React Native code for rendering performance, lists, images, and memory. Use before merging UI-heavy code.
 version: 1.0.0
+platforms: [ios, android]
+react-native-version: 0.76+
 tags: [react-native, performance]
 ---
 ```
@@ -50,10 +57,11 @@ tags: [react-native, performance]
 Every skill follows this section order:
 
 1. **`# Title`** — a heading naming the skill.
-2. **`## When to Use`** — a non-empty list of situations where the skill applies.
-3. **`## Guidance`** — the body: checklists and explanations of how to apply the skill.
-4. **`## Anti-Patterns`** — *(optional)* a table of common anti-patterns.
-5. **`## Pitfalls`** — *(optional, recommended)* a single section listing subtle mistakes and edge cases.
+2. **`## Applicability`** — platforms and React Native version the skill targets.
+3. **`## When to Use`** — a non-empty list of situations where the skill applies.
+4. **`## Guidance`** — the body: checklists and explanations of how to apply the skill.
+5. **`## Anti-Patterns`** — *(optional)* a table of common anti-patterns.
+6. **`## Pitfalls`** — *(optional, recommended)* a single section listing subtle mistakes and edge cases.
 
 ### Examples
 

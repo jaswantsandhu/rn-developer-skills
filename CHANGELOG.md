@@ -2,6 +2,20 @@
 
 All notable changes to this repository are documented here. This project follows [semantic versioning](https://semver.org/).
 
+Per-skill history lives in [`skills/CHANGELOG.md`](skills/CHANGELOG.md).
+
+## Unreleased
+
+### Added
+- `docs/skill-authoring-guide.md` — worked example for adding a new skill (`error-handling`).
+- `skills/CHANGELOG.md` — per-skill version history.
+- `schemas/plugin.schema.json` and `scripts/validate-plugin.mjs` — Cursor plugin manifest validation.
+- `platforms` and `react-native-version` frontmatter fields on all skills; `## Applicability` section in each skill.
+
+### Changed
+- Plugin logo in `.cursor-plugin/plugin.json` now points to `assets/logo.svg`.
+- `scripts/validate-skills.mjs` validates skill metadata, README index, and plugin manifest.
+
 ## 1.0.0
 
 Initial public release.
