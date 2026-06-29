@@ -1,5 +1,7 @@
 # React Native Developer Skills
 
+![React Native Developer Skills — Spec/Skill-Driven Development for RN teams](assets/rn-developer-skills-announcement.jpg)
+
 A collection of focused, vendor-neutral skills that help React Native developers practise **Spec/Skill-Driven Development (SSD)**: plan work as a spec before building, then use focused skills to guide and audit the implementation.
 
 Each skill is a self-contained Markdown guide with a clear "when to use", a checklist, correct/incorrect examples, and pitfalls. They are written to be dropped into any RN project and consumed by a developer or an AI agent.
