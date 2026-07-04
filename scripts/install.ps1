@@ -65,7 +65,7 @@ function Install-SkillDirs {
   Write-Host "Installed $count $Label skill(s)."
 }
 
-function Package-ClaudeZips {
+function Compress-ClaudeZips {
   Write-Host "Packaging Claude ZIP files in $DistDir"
   Invoke-Step "New-Item -ItemType Directory -Force $DistDir" {
     New-Item -ItemType Directory -Force -Path $DistDir | Out-Null
@@ -103,14 +103,14 @@ switch ($Mode) {
   "all" {
     Install-SkillDirs -TargetRoot $CodexDir -Label "Codex"
     Install-SkillDirs -TargetRoot $ClaudeDir -Label "Claude"
-    Package-ClaudeZips
+    Compress-ClaudeZips
   }
   "codex" {
     Install-SkillDirs -TargetRoot $CodexDir -Label "Codex"
   }
   "claude" {
     Install-SkillDirs -TargetRoot $ClaudeDir -Label "Claude"
-    Package-ClaudeZips
+    Compress-ClaudeZips
   }
 }
 

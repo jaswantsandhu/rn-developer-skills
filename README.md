@@ -46,9 +46,15 @@ The same skills inform all three stages: what guides the build also defines the 
 
 ## Installation
 
-### Codex and Claude scripts
+### Codex and Claude
 
-Use the installer scripts when you want local setup without manually copying the `skills/` folder.
+For broad agent support, use the standard skills CLI:
+
+```bash
+npx skills add Neha/rn-developer-skills
+```
+
+The scripts below are a zero-dependency fallback when you want local setup without manually copying the `skills/` folder.
 
 **macOS / Linux**
 
@@ -76,7 +82,7 @@ Install only one target when needed:
 ./scripts/install.sh claude
 ```
 
-The Codex installer copies each skill folder to `$HOME/.agents/skills`, which Codex reads for user-level skills. Override with `--codex-dir` or `CODEX_SKILLS_DIR`.
+The Codex installer copies each skill folder to `$HOME/.agents/skills`, which current Codex docs list as the user-level skills directory. Override with `--codex-dir` or `CODEX_SKILLS_DIR` if your Codex setup uses a different location.
 
 The Claude installer copies each skill folder to `$HOME/.claude/skills` and also writes uploadable ZIP files to `dist/claude/`. Override the local copy location with `--claude-dir` or `CLAUDE_SKILLS_DIR` if your Claude setup expects a different skills directory. For Claude.ai, upload the generated ZIP files from **Customize → Skills**.
 

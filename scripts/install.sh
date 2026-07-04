@@ -27,7 +27,7 @@ Options:
   -h, --help        Show this help
 
 Notes:
-  Codex user skills are installed as folders under $HOME/.agents/skills.
+  Codex user skills default to $HOME/.agents/skills per current Codex docs.
   Claude ZIP packages are written to dist/claude/ for upload in Claude.
   Claude direct-copy installs can be overridden with --claude-dir or CLAUDE_SKILLS_DIR.
 EOF
